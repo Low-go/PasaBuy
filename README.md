@@ -1,55 +1,60 @@
 # AskIt
 
-## Database Schema
-```mermaid
-erDiagram
-    User ||--o{ Service : creates
-    User ||--o{ ServiceProposal : submits
-    User ||--o{ Message : sends
-    Service ||--o{ ServiceProposal : "receives proposals"
-    Service ||--o{ Message : "has chat messages"
-    Service }o--|| User : "fulfilled by"
+Welcome to **AskIt** - the Expo Go community-centered application designed to allow people to make requests in their community, connect or fulfill requests, and help those around them.
 
-    User {
-        int id PK
-        string email
-        string password_hash
-        string name
-        string location
-        datetime created_at
-    }
+## Tech Stack
 
-    Service {
-        int id PK
-        int requester_id FK
-        int fulfiller_id FK "nullable"
-        string title
-        string description
-        string location
-        string status "pending/assigned/completed"
-        datetime created_at
-    }
+- **Frontend**: React Native with Expo Go
+- **Backend**: Django/Python
+- **Database**: PostgreSQL
 
-    ServiceProposal {
-        int id PK
-        int service_id FK
-        int responder_id FK
-        string message
-        datetime created_at
-    }
+## Getting Started
 
-    Message {
-        int id PK
-        int service_id FK
-        int sender_id FK
-        string content
-        datetime created_at
-    }
+### Prerequisites
+
+- Node.js and npm installed
+- Docker and Docker Compose installed
+- VS Code (recommended)
+- Git
+
+### Installation
+
+1. **Clone the repository**
+```bash
+   git clone <repository-url>
+   cd askit
 ```
 
-## How It Works
+2. **Install frontend dependencies** (first time only)
+```bash
+   cd frontend
+   npm install
+   cd ..
+```
 
-1. **User** creates a **Service** (request)
-2. Other users submit **ServiceProposals** (single initial response)
-3. Requester selects a responder → `fulfiller_id` gets set
-4. **Messages** table activates for back-and-forth chat between requester and fulfiller
+### Running the Development Environment
+
+The backend and database are fully dockerized for easy setup. To run this project in development you will also need docker desktop installed. We've configured VS Code tasks to start everything with a single command.
+
+**To start the entire development environment:**
+
+1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+2. Select **Tasks: Run Task**
+3. Choose **"start dev environment"**
+
+This will automatically:
+- Open two terminal windows
+- Start the frontend server (with logs in terminal 1)
+- Start the backend and database services via Docker (with logs in terminal 2)
+
+## Documentation
+
+For information on the database schema, [click here](backend\README.md).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+[Add your license information here]
