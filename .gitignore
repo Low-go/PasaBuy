@@ -33,7 +33,8 @@ web-build/
 .env.*.local
 
 # IDE
-.vscode/
+# .vscode/
+frontend/.vscode/
 .idea/
 *.swp
 *.swo
