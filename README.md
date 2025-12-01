@@ -49,12 +49,12 @@ This will automatically:
 
 ## Documentation
 
-For information on the database schema, [click here](backend\README.md).
+For information on the database schema, [click here](backend/README.md).
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
+## Licensew
 
 [Add your license information here]
