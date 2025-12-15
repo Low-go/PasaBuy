@@ -11,11 +11,19 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import * as React from 'react';
+import { useState, useRef } from 'react';
 import { Pressable, type TextInput, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
-export function SignInForm() {
-  const passwordInputRef = React.useRef<TextInput>(null);
+interface SignInFormProps {
+  onSignIn: ()=> void;
+}
+
+export function SignInForm({ onSignIn}: SignInFormProps) {
+  const passwordInputRef = useRef<TextInput>(null);
+  const router = useRouter();
+  const[email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function onEmailSubmitEditing() {
     passwordInputRef.current?.focus();
@@ -23,6 +31,11 @@ export function SignInForm() {
 
   function onSubmit() {
     // TODO: Submit form and navigate to protected screen if successful
+
+    //these are just temp /test placeholders will come back to this
+    onSignIn();
+
+    router.replace('/(tabs)')
   }
 
   return (

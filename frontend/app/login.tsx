@@ -1,7 +1,7 @@
 import { SignInForm } from "@/components/sign-in-form";
 import { ScrollView, View } from "react-native"
-import { useRouter } from "expo-router";
 import { useState } from "react";
+import { useSession } from "@/authContext";
 
 
 const MOCK_USER = {
@@ -11,6 +11,9 @@ const MOCK_USER = {
 
 export default function LoginScreen(){
 
+  const {signIn} = useSession();
+  // note to self not sure if i need a use router here, i think only in the child coomponent
+
     return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
@@ -18,7 +21,7 @@ export default function LoginScreen(){
       keyboardDismissMode="interactive"
     >
       <View className="w-full max-w-sm">
-        <SignInForm />
+        <SignInForm onSignIn={signIn}/>
       </View>
     </ScrollView>
   );
