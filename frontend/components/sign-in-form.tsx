@@ -16,10 +16,11 @@ import { Pressable, type TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 interface SignInFormProps {
-  onSignIn: ()=> void;
+  onSignIn: (email: string, password: string) => Promise<void>;
+  isLoading?: boolean;
 }
 
-export function SignInForm({ onSignIn}: SignInFormProps) {
+export function SignInForm({ onSignIn, isLoading }: SignInFormProps) {
   const passwordInputRef = useRef<TextInput>(null);
   const router = useRouter();
   const[email, setEmail] = useState('');
@@ -29,13 +30,11 @@ export function SignInForm({ onSignIn}: SignInFormProps) {
     passwordInputRef.current?.focus();
   }
 
-  function onSubmit() {
+  async function onSubmit() {
     // TODO: Submit form and navigate to protected screen if successful
 
     //these are just temp /test placeholders will come back to this
-    onSignIn();
-
-    router.replace('/(tabs)')
+    await onSignIn(email, password);
   }
 
   return (
@@ -83,7 +82,7 @@ export function SignInForm({ onSignIn}: SignInFormProps) {
                 onSubmitEditing={onSubmit}
               />
             </View>
-            <Button className="w-full" onPress={onSubmit}>
+            <Button className="w-full" onPress={onSubmit} disabled={isLoading}>
               <Text>Continue</Text>
             </Button>
           </View>

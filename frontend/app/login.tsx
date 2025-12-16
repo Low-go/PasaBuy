@@ -1,19 +1,27 @@
 import { SignInForm } from "@/components/sign-in-form";
-import { ScrollView, View } from "react-native"
+import { ScrollView, View, Alert } from "react-native"
 import { useState } from "react";
 import { useSession } from "@/authContext";
-
-
-const MOCK_USER = {
-    email: "test@example.com",
-    password: "password123"
-};
+import { router } from "expo-router";
 
 export default function LoginScreen(){
 
   const {signIn} = useSession();
+  const [isLoading, setIsLoading] = useState(false);
   // note to self not sure if i need a use router here, i think only in the child coomponent
 
+  const handleSignIn = async(email:string, password: string)=>{
+    setIsLoading(true);
+    const success = await signIn(email, password);
+
+    setIsLoading(false);
+
+    if (success){
+      router.replace('/(tabs)')
+    } else {
+      Alert.alert('Login Failed', 'Invalid email or password');
+    }
+  }
     return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
@@ -21,7 +29,10 @@ export default function LoginScreen(){
       keyboardDismissMode="interactive"
     >
       <View className="w-full max-w-sm">
-        <SignInForm onSignIn={signIn}/>
+        <SignInForm 
+          onSignIn={handleSignIn}
+          isLoading={isLoading}
+        />
       </View>
     </ScrollView>
   );
