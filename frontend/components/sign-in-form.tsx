@@ -59,6 +59,8 @@ export function SignInForm({ onSignIn, isLoading }: SignInFormProps) {
                 onSubmitEditing={onEmailSubmitEditing}
                 returnKeyType="next"
                 submitBehavior="submit"
+                value={email}
+                onChangeText={setEmail}
               />
             </View>
             <View className="gap-1.5">
@@ -80,6 +82,8 @@ export function SignInForm({ onSignIn, isLoading }: SignInFormProps) {
                 secureTextEntry
                 returnKeyType="send"
                 onSubmitEditing={onSubmit}
+                value={password}
+                onChangeText={setPassword}
               />
             </View>
             <Button className="w-full" onPress={onSubmit} disabled={isLoading}>
