@@ -4,7 +4,18 @@
  
 @layer base {
   :root {
-      --background: 220 20% 97%;      
+      
+      --primary: 212, 42.06%, 20.98%;  /* header and nav */
+
+      --background: 220, 23.08%, 97.45%; /* for the main page */
+      
+      --card: 0, 0%, 100%; 
+      
+      --accent: 212.07, 44.62%, 25.49%; /* primary buttons*/
+      
+      --secondary: 213.33, 28.12%, 87.45%; /* tags and dividers or soft UI*/
+
+      /* --background: 220 20% 97%;      
       --foreground: 210 42% 21%;    
       --card: 0 0% 100%;          
       --card-foreground: 210 42% 21%;
@@ -28,11 +39,19 @@
       --chart-2: 173 58% 39%;
       --chart-3: 197 37% 24%;
       --chart-4: 43 74% 66%;
-      --chart-5: 27 87% 67%;
+      --chart-5: 27 87% 67%; */
   }
  
   .dark:root {
-      --background: 215 35% 10%;      
+
+
+      --background: 211.3, 43.4%, 10.39%;
+      --card: 211.76, 41.46%, 16.08%;
+      --primarytext: 213.33, 25.71%, 93.14%;
+      --accent: 212.65, 41.98%, 31.76%;
+      --secondarytext: 211.67, 23.08%, 69.41%;
+
+      /* --background: 215 35% 10%;      
       --foreground: 210 20% 92%;     
 
       --card: 215 30% 16%;            
@@ -67,6 +86,6 @@
       --chart-2: 160 60% 45%;
       --chart-3: 30 80% 55%;
       --chart-4: 280 65% 60%;
-      --chart-5: 340 75% 55%;
+      --chart-5: 340 75% 55%; */
     }
 }
