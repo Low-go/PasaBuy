@@ -2,23 +2,24 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
-import { Home, Bell, User, Settings } from 'lucide-react-native';
+import { Home, MessageCircle, User, Settings } from 'lucide-react-native';
 // import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  const tabColors = colorScheme === 'dark' 
+  // Tabs are strange in that they do not accept nativewind
+  const tabColors = colorScheme === 'light' 
   ? {
-      active: '#D1A85A',      // Your dark mode accent
-      inactive: '#9AA4B2',    // Your dark mode secondary text
-      background: '#22344A',  // Your dark mode bg
+      active: '#D1A85A',      
+      inactive: '#9AA4B2',    
+      background: '#22344A',  
     }
   : {
-      active: '#C79A4A',      // Your light mode gold
-      inactive: '#B9A48C',    // Your light mode neutral
-      background: '#121A26',  // Your light mode bg
+      active: '#C79A4A',      
+      inactive: '#FFFFFF',    
+      background: '#121A26',  
     };
 
   return (
@@ -44,7 +45,7 @@ export default function TabLayout() {
         name="notifications"
         options={{
           title: 'Notifications',
-          tabBarIcon: ({ color }) => <Bell size={28} color={color} strokeWidth={2}/>,
+          tabBarIcon: ({ color }) => <MessageCircle size={28} color={color} strokeWidth={2}/>,
         }}
       />
       <Tabs.Screen
