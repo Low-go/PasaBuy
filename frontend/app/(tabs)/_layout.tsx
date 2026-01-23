@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
-import { Home, MessageCircle, User, Settings } from 'lucide-react-native';
+import { Home, MessageCircle, User, Handshake } from 'lucide-react-native';
 // import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
@@ -42,6 +42,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="offers"
+        options={{
+          title: 'Offers',
+          tabBarIcon: ({ color }) => <Handshake size={28} color={color} strokeWidth={2}/>,
+        }}
+      />
+      <Tabs.Screen
         name="notifications"
         options={{
           title: 'Notifications',
@@ -53,13 +60,6 @@ export default function TabLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => <User size={28} color={color} strokeWidth={2}/>,
-        }}
-      />
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: 'Settings',
-          tabBarIcon: ({ color }) => <Settings size={28} color={color} strokeWidth={2}/>,
         }}
       />
     </Tabs>

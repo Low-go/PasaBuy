@@ -16,6 +16,7 @@ export default function HomeScreen() {
   );
 }
 
+// TODO delete this later
 const styles = StyleSheet.create({
   container: {
     flex: 1,
