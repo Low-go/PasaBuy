@@ -5,6 +5,7 @@ import { HapticTab } from '@/components/haptic-tab';
 import { Home, MessageCircle, User, Handshake } from 'lucide-react-native';
 // import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import LightDark from '@/components/customComponents/lightDark';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -31,7 +32,21 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: tabColors.background,
         },
-        headerShown: false,
+        tabBarLabelStyle: {
+          fontFamily: 'Inter_600SemiBold', // Add this for tab labels!
+        },
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: tabColors.background
+        },
+        headerTintColor: tabColors.inactive,
+        headerTitle: 'PasaBuy',
+        headerTitleAlign: 'center',
+        // may need an import of a larger font here
+        headerTitleStyle: {
+          fontFamily: 'Inter_700Bold'
+        },
+        headerRight: () => <LightDark/>,
         tabBarButton: HapticTab,
       }}>
       <Tabs.Screen
