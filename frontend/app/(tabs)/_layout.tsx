@@ -42,7 +42,7 @@ export default function TabLayout() {
         headerTintColor: tabColors.inactive,
         headerTitle: 'PasaBuy',
         headerTitleAlign: 'center',
-        // may need an import of a larger font here
+        // may need a stylized Name here
         headerTitleStyle: {
           fontFamily: 'Inter_700Bold'
         },
