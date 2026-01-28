@@ -14,7 +14,7 @@ export default function TabLayout() {
   const tabColors = colorScheme === 'light' 
   ? {
       active: '#D1A85A',      
-      inactive: '#9AA4B2',    
+      inactive: '#FFFFFF',    
       background: '#22344A',  
     }
   : {
