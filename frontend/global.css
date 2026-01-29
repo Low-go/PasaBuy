@@ -2,92 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base {
-  :root {
-    --color-navy: 212 42.06% 20.98%;
-    --color-page-bg: 220 23.08% 97.45%;
-    --color-card-white: 0 0% 100%;
-    --color-accent: 212.07 44.62% 25.49%;
-    --color-neutral: 213.33 28.12% 87.45%;
-    
-    /* Dark mode versions */
-    --color-dark-bg: 211.3 43.4% 10.39%;
-    --color-dark-card: 211.76 41.46% 16.08%;
-    --color-dark-text: 213.33 25.71% 93.14%;
-    --color-dark-accent: 212.65 41.98% 31.76%;
-    --color-dark-secondary-text: 211.67 23.08% 69.41%;
-    
-    /* Red for error states and delete buttons, maybe we need a green one too */
-    --color-destructive: 0 70% 55%;
-
-    /* Make these available to Tailwind classes like bg-primary, text-muted, etc */
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-accent-theme: var(--accent);
-    --color-muted: var(--muted);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-card: var(--card);
-    --color-card-foreground: var(--card-foreground);
-    --color-border: var(--border);
-
-    /*Original mappings here*/
-    --background: var(--color-page-bg);
-    --foreground: var(--color-navy);
-    
-    --card: var(--color-card-white);
-    --card-foreground: var(--color-navy);
-    
-    --primary: var(--color-accent);
-    --primary-foreground: var(--color-card-white);
-    
-    --secondary: var(--color-neutral);
-    --secondary-foreground: var(--color-navy);
-    
-    --accent: var(--color-accent);
-    --accent-foreground: var(--color-card-white);
-    
-    --muted: var(--color-neutral);
-    --muted-foreground: var(--color-navy);
-    
-    --border: var(--color-neutral);
-    --input: var(--color-neutral);
-    --ring: var(--color-accent);
-    
-    --destructive: var(--color-destructive);
-    --destructive-foreground: var(--color-card-white);
-    
-    --radius: 0.5rem;
-  }
+:root {
+  /* Page background and main text colors */
+  --background: #f9fafb;
+  --foreground: #111827;
+  
+  /* Card container color*/
+  --card: #ffffff;
+  --card-foreground: #111827;
+  
+  /* Popover/dropdown colors */
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  
+  /* Primary action colors - buttons, links */
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  
+  /* secondary colors */
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  
  
-  .dark {
-    --background: var(--color-dark-bg);
-    --foreground: var(--color-dark-text);
-    
-    --card: var(--color-dark-card);
-    --card-foreground: var(--color-dark-text);
-    
-    --primary: var(--color-dark-accent);
-    --primary-foreground: var(--color-dark-text);
-    
-    --secondary: var(--color-dark-card);
-    --secondary-foreground: var(--color-dark-secondary-text);
-    
-    --accent: var(--color-dark-accent);
-    --accent-foreground: var(--color-dark-text);
-    
-    --muted: var(--color-dark-card);
-    --muted-foreground: var(--color-dark-secondary-text);
-    
-    --border: var(--color-dark-card);
-    --input: var(--color-dark-card);
-    --ring: var(--color-dark-accent);
-    
-    --destructive: var(--color-destructive);
-    --destructive-foreground: var(--color-card-white);
-  }
+  --muted: #f3f4f6;
+  --muted-foreground: #4b5563;
+  
+
+  --accent: #f3f4f6;
+  --accent-foreground: #111827;
+  
+  /* Alerts delete and stuff */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #2563eb;
+  
+ 
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Page background and main text colors */
+  --background: #111827;
+  --foreground: #ffffff;
+  
+  /* Card container colors */
+  --card: #1f2937;
+  --card-foreground: #ffffff;
+  
+  
+  --popover: #1f2937;
+  --popover-foreground: #ffffff;
+  
+  
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary/alternative action colors */
+  --secondary: #1f2937;
+  --secondary-foreground: #d1d5db;
+  
+  /* subtle colors */
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  
+  
+  --accent: #1f2937;
+  --accent-foreground: #ffffff;
+  
+  /* Red Stuff */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Borders */
+  --border: #374151;
+  --input: #374151;
+  --ring: #2563eb;
 }

@@ -11,40 +11,31 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import { useState, useRef } from 'react';
-import { Pressable, type TextInput, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import * as React from 'react';
+import { Pressable, TextInput, View } from 'react-native';
 
-interface SignInFormProps {
-  onSignIn: (email: string, password: string) => Promise<void>;
-  isLoading?: boolean;
-  onSignUpPress: () => void
+interface SignUpProps {
+  onSignInPress: () => void
 }
 
-export function SignInForm({ onSignIn, isLoading, onSignUpPress }: SignInFormProps) {
-  const passwordInputRef = useRef<TextInput>(null);
-  const router = useRouter();
-  const[email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export function SignUpForm({onSignInPress}: SignUpProps) {
+  const passwordInputRef = React.useRef<TextInput>(null);
 
   function onEmailSubmitEditing() {
     passwordInputRef.current?.focus();
   }
 
-  async function onSubmit() {
+  function onSubmit() {
     // TODO: Submit form and navigate to protected screen if successful
-
-    //these are just temp /test placeholders will come back to this
-    await onSignIn(email, password);
   }
 
   return (
     <View className="gap-6">
       <Card className="border-border/0 sm:border-border shadow-none sm:shadow-sm sm:shadow-black/5">
         <CardHeader>
-          <CardTitle className="text-center text-xl sm:text-left">Sign in to PasaBuy</CardTitle>
+          <CardTitle className="text-center text-xl sm:text-left">Create your account</CardTitle>
           <CardDescription className="text-center sm:text-left">
-            Welcome back! Please sign in to continue
+            Welcome! Please fill in the details to get started.
           </CardDescription>
         </CardHeader>
         <CardContent className="gap-6">
@@ -60,22 +51,11 @@ export function SignInForm({ onSignIn, isLoading, onSignUpPress }: SignInFormPro
                 onSubmitEditing={onEmailSubmitEditing}
                 returnKeyType="next"
                 submitBehavior="submit"
-                value={email}
-                onChangeText={setEmail}
               />
             </View>
             <View className="gap-1.5">
               <View className="flex-row items-center">
                 <Label htmlFor="password">Password</Label>
-                <Button
-                  variant="link"
-                  size="sm"
-                  className="web:h-fit ml-auto h-4 px-1 py-0 sm:h-4"
-                  onPress={() => {
-                    // TODO: Navigate to forgot password screen
-                  }}>
-                  <Text className="font-normal leading-4">Forgot your password?</Text>
-                </Button>
               </View>
               <Input
                 ref={passwordInputRef}
@@ -83,19 +63,17 @@ export function SignInForm({ onSignIn, isLoading, onSignUpPress }: SignInFormPro
                 secureTextEntry
                 returnKeyType="send"
                 onSubmitEditing={onSubmit}
-                value={password}
-                onChangeText={setPassword}
               />
             </View>
-            <Button className="w-full" onPress={onSubmit} disabled={isLoading}>
+            <Button className="w-full" onPress={onSubmit}>
               <Text>Continue</Text>
             </Button>
           </View>
           <Text className="text-center text-sm">
-            Don&apos;t have an account?{' '}
+            Already have an account?{' '}
             <Pressable
-              onPress={onSignUpPress}>
-              <Text className="text-sm underline underline-offset-4">Sign up</Text>
+              onPress={onSignInPress}>
+              <Text className="text-sm underline underline-offset-4">Sign in</Text>
             </Pressable>
           </Text>
           <View className="flex-row items-center">
