@@ -19,6 +19,9 @@ module.exports = {
     '--border': '#e5e7eb',
     '--input': '#e5e7eb',
     '--ring': '#2563eb',
+    '--green-offer': '#16a34a',
+    '--green-offer-light': '#dcfce7',
+    '--green-offer-text': '#15803d',
   },
   dark: {
     '--background': '#111827',
@@ -40,5 +43,8 @@ module.exports = {
     '--border': '#374151',
     '--input': '#374151',
     '--ring': '#2563eb',
+    '--green-offer': '#16a34a',
+    '--green-offer-light': '#14532d',
+    '--green-offer-text': '#86efac',
   },
 };
