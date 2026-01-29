@@ -1,6 +1,5 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
 import { HapticTab } from '@/components/haptic-tab';
 import { Home, MessageCircle, User, Handshake } from 'lucide-react-native';
 // import { Colors } from '@/constants/theme';
@@ -13,14 +12,14 @@ export default function TabLayout() {
   // Tabs are strange in that they do not accept nativewind
   const tabColors = colorScheme === 'light' 
   ? {
-      active: '#D1A85A',      
-      inactive: '#FFFFFF',    
-      background: '#22344A',  
+      active: '#2563eb',      
+      inactive: '#6b7280',    
+      background: '#ffffff',  
     }
   : {
-      active: '#C79A4A',      
-      inactive: '#FFFFFF',    
-      background: '#121A26',  
+      active: '#2563eb',      
+      inactive: '#9ca3af',    
+      background: '#1e2939',
     };
 
   return (
@@ -80,6 +79,3 @@ export default function TabLayout() {
     </Tabs>
   );
 }
-
-
-

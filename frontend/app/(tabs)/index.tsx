@@ -1,37 +1,19 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { useContext } from 'react';
+import { Text, View, Pressable } from 'react-native';
 import { useSession } from '../../authContext';
-
 
 export default function HomeScreen() {
   const { signOut } = useSession();
   
   return (
-    <View style={styles.container}>
-      <Text style={styles.helloText}>Hello World</Text>
-      <Text style={styles.signOutText} onPress={signOut}>
-        Sign Out
+    <View className="flex-1 justify-center items-center bg-background">
+      <Text className="text-4xl font-inter-bold text-foreground mb-5">
+        Hello World
       </Text>
+      <Pressable onPress={signOut}>
+        <Text className="text-lg font-inter-semibold text-primary mt-5">
+          Sign Out
+        </Text>
+      </Pressable>
     </View>
   );
 }
-
-// TODO delete this later
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  helloText: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  signOutText: {
-    fontSize: 18,
-    color: '#007AFF',
-    marginTop: 20,
-  },
-});
