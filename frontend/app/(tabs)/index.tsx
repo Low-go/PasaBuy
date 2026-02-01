@@ -22,7 +22,7 @@ export default function HomeScreen() {
 
     {/**This Flatlist is what will help render our infinite scrolling later */}
     <FlatList
-      data={[{"id": 1}]}
+      data={[{"id": 1}, {"id2": 2}, {"id3": 3}, {"id4": 4}, {"id5": 5}, {"id6": 6}, {"id7": 7}, {"id8": 8}]}
       renderItem={({ item }) => <InfoCard />}
       keyExtractor={(item) => String(item.id)}
       className="flex-1 bg-background"
@@ -31,7 +31,9 @@ export default function HomeScreen() {
         padding: 6,
         margin: 6,
        
-      }}/>
+      }}
+      ItemSeparatorComponent={() => <View className='h-4'/>}
+      />
     </View>
   );
 }
