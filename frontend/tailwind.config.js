@@ -42,6 +42,11 @@ module.exports = {
           DEFAULT: 'var(--card)',
           foreground: 'var(--card-foreground)',
         },
+        'green-offer': {
+        DEFAULT: 'var(--green-offer)',
+        light: 'var(--green-offer-light)',
+        text: 'var(--green-offer-text)',
+      },
       },
       borderRadius: {
         lg: 'var(--radius)',

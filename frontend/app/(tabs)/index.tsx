@@ -5,16 +5,14 @@ import { useState } from 'react';
 
 export default function HomeScreen() {
   const { signOut } = useSession();
-  const [dashboardView, setDashboardView] = useState('offer');
+  // How we track if we are on Requester or Fufiller view
+  const [dashboardView, setDashboardView] = useState<'seeker' | 'runner'>('runner');
   
   return (
 
     <View className="flex-1 bg-background">
     {/* Temporary header / controls, button ti=o switch views will be here later */}
     <View className="items-center justify-center py-6">
-      <Text className="text-4xl font-inter-bold text-foreground mb-5">
-        Hello World
-      </Text>
       <Pressable onPress={signOut}>
         <Text className="text-lg font-inter-semibold text-primary">
           Sign Out
