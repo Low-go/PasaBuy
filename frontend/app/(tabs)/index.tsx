@@ -1,9 +1,11 @@
 import { Text, View, Pressable, FlatList } from 'react-native';
 import { useSession } from '../../authContext';
 import InfoCard from '@/components/customComponents/infoCard';
+import { useState } from 'react';
 
 export default function HomeScreen() {
   const { signOut } = useSession();
+  const [dashboardView, setDashboardView] = useState('offer');
   
   return (
 
@@ -22,7 +24,7 @@ export default function HomeScreen() {
 
     {/**This Flatlist is what will help render our infinite scrolling later */}
     <FlatList
-      data={[{"id": 1}, {"id2": 2}, {"id3": 3}, {"id4": 4}, {"id5": 5}, {"id6": 6}, {"id7": 7}, {"id8": 8}]}
+      data={[{"id": 1}, {"id": 2}, {"id": 3}, {"id": 4}, {"id": 5}, {"id": 6}, {"id": 7}, {"id": 8}]}
       renderItem={({ item }) => <InfoCard />}
       keyExtractor={(item) => String(item.id)}
       className="flex-1 bg-background"

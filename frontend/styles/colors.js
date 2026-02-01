@@ -30,6 +30,7 @@ module.exports = {
     '--card-foreground': '#ffffff',
     '--popover': '#1f2937',
     '--popover-foreground': '#ffffff',
+    // Remember this one I think this is one of our select colors
     '--primary': '#2563eb',
     '--primary-foreground': '#ffffff',
     '--secondary': '#1f2937',
@@ -43,6 +44,7 @@ module.exports = {
     '--border': '#374151',
     '--input': '#374151',
     '--ring': '#2563eb',
+    // this is also one, leaving a comment to rememebr for now
     '--green-offer': '#16a34a',
     '--green-offer-light': '#14532d',
     '--green-offer-text': '#86efac',

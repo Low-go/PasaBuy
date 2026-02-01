@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import 'react-native-reanimated';
 import "../global.css"
 import { PortalHost } from '@rn-primitives/portal';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useColorScheme } from 'react-native';
 import { SessionProvider, useSession } from '@/authContext';
 import { SplashScreenController } from '@/splash';
 import { useFonts, Inter_400Regular, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
