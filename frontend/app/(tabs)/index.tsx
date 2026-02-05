@@ -2,6 +2,7 @@ import { Text, View, Pressable, FlatList } from 'react-native';
 import { useSession } from '../../authContext';
 import InfoCard from '@/components/customComponents/infoCard';
 import { useState } from 'react';
+import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton';
 
 export default function HomeScreen() {
   const { signOut } = useSession();
@@ -18,6 +19,10 @@ export default function HomeScreen() {
           Sign Out
         </Text>
       </Pressable>
+      <RunnerSeekerButton 
+        activeView={dashboardView}
+        onViewChange={setDashboardView}
+      />
     </View>
 
     {/**This Flatlist is what will help render our infinite scrolling later */}
