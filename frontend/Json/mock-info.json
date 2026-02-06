@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Need help moving furniture",
     "description": "Need help moving furniture to a new apartment this weekend. Heavy lifting required.",
     "tags": ["Moving Help"],
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Offering handyman services",
     "description": "Professional handyman offering free help with home repairs on weekends.",
     "tags": ["Handyman"],
@@ -27,7 +27,7 @@
   },
   {
     "id": 3,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Need grocery pickup",
     "description": "Looking for someone to pick up groceries from Whole Foods. Will provide list and payment.",
     "tags": ["Grocery Help"],
@@ -40,7 +40,7 @@
   },
   {
     "id": 4,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Grocery shopping trips available",
     "description": "Making weekly trips to Costco and Trader Joe's. Happy to grab items for neighbors.",
     "tags": ["Grocery Help"],
@@ -53,7 +53,7 @@
   },
   {
     "id": 5,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Dog walking needed",
     "description": "Need someone to walk my golden retriever while I'm at work. Twice daily, one hour each.",
     "tags": ["Pet Care"],
@@ -66,7 +66,7 @@
   },
   {
     "id": 6,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Pet sitting services",
     "description": "Experienced with dogs and cats. Available for daily visits or overnight stays.",
     "tags": ["Pet Care"],
@@ -79,7 +79,7 @@
   },
   {
     "id": 7,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Tech support needed",
     "description": "Computer running slow, need help with virus removal and general cleanup.",
     "tags": ["Tech Support"],
@@ -92,7 +92,7 @@
   },
   {
     "id": 8,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Free tech help available",
     "description": "IT professional offering free tech support for seniors and neighbors. Computer setup, troubleshooting, etc.",
     "tags": ["Tech Support"],
@@ -105,7 +105,7 @@
   },
   {
     "id": 9,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Yard work assistance",
     "description": "Need help raking leaves and trimming hedges. Large yard, will take a few hours.",
     "tags": ["Yard Work"],
@@ -118,7 +118,7 @@
   },
   {
     "id": 10,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Lawn care services",
     "description": "Offering lawn mowing, edging, and basic landscaping. Have my own equipment.",
     "tags": ["Yard Work"],
@@ -131,7 +131,7 @@
   },
   {
     "id": 11,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Ride to airport needed",
     "description": "Need a ride to the airport early morning on Saturday. Will cover gas.",
     "tags": ["Transportation"],
@@ -144,7 +144,7 @@
   },
   {
     "id": 12,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Airport runs available",
     "description": "Making regular trips to airport for work. Happy to give rides to others heading same direction.",
     "tags": ["Transportation"],
@@ -157,7 +157,7 @@
   },
   {
     "id": 13,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Painting help needed",
     "description": "Repainting living room and hallway. Need an extra pair of hands for the weekend.",
     "tags": ["Home Improvement"],
@@ -170,7 +170,7 @@
   },
   {
     "id": 14,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Home improvement assistance",
     "description": "Experienced with painting, drywall, and minor repairs. Free help on weekends.",
     "tags": ["Home Improvement"],
@@ -183,7 +183,7 @@
   },
   {
     "id": 15,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Tutoring for high school math",
     "description": "Teen struggling with algebra and geometry. Looking for patient tutor for after school sessions.",
     "tags": ["Tutoring"],
@@ -196,7 +196,7 @@
   },
   {
     "id": 16,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Free math tutoring",
     "description": "Retired math teacher offering free tutoring for middle and high school students.",
     "tags": ["Tutoring"],
@@ -209,7 +209,7 @@
   },
   {
     "id": 17,
-    "post_type": "SEEKER",
+    "post_type": "seeker",
     "title": "Help assembling furniture",
     "description": "Just bought new IKEA furniture. Need help putting together a dresser and bookshelf.",
     "tags": ["Assembly"],
@@ -222,7 +222,7 @@
   },
   {
     "id": 18,
-    "post_type": "RUNNER",
+    "post_type": "runner",
     "title": "Furniture assembly services",
     "description": "Experienced with all types of furniture assembly. Have tools and can help same day.",
     "tags": ["Assembly"],

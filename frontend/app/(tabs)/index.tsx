@@ -3,11 +3,17 @@ import { useSession } from '../../authContext';
 import InfoCard from '@/components/customComponents/infoCard';
 import { useState } from 'react';
 import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton';
+import { Post } from '@/types/post';
+
+//this is simply to test card component functionality while there is no backend configured atm
+import mockPosts from '../../Json/mock-info.json';
+const posts = mockPosts as Post[];
 
 export default function HomeScreen() {
   const { signOut } = useSession();
   // How we track if we are on Requester or Fufiller view
   const [dashboardView, setDashboardView] = useState<'seeker' | 'runner'>('runner');
+  const filteredPosts = posts.filter(post => post.post_type === dashboardView)
   
   return (
 
@@ -27,8 +33,8 @@ export default function HomeScreen() {
 
     {/**This Flatlist is what will help render our infinite scrolling later */}
     <FlatList
-      data={[{"id": 1}, {"id": 2}, {"id": 3}, {"id": 4}, {"id": 5}, {"id": 6}, {"id": 7}, {"id": 8}]}
-      renderItem={({ item }) => <InfoCard type='seeker' activeView={dashboardView}/>}
+      data= {filteredPosts}
+      renderItem={({ item }) => <InfoCard post={item} activeView={dashboardView}/>}
       keyExtractor={(item) => String(item.id)}
       className="flex-1 bg-background"
       contentContainerStyle={{

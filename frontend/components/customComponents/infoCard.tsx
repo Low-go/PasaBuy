@@ -4,27 +4,28 @@ import { Text, Image, View, Pressable } from 'react-native';
 import { MapPin, Clock } from 'lucide-react-native'
 import { useColorScheme } from 'react-native';
 import appColors from 'styles/colors';
+import { Post } from "@/types/post";
 
 interface infoCardProps{
-    type: 'seeker'  |'runner';
+    post: Post;
     activeView: 'seeker' | 'runner';
 }
 
-export default function InfoCard(cardProps: infoCardProps){
+export default function InfoCard(cardInfo: infoCardProps){
 
     // Note to self need to make a hook for these things later so I don't repeat this for every icon in a component
     const colorScheme = useColorScheme();
     const colors = colorScheme === 'dark' ? appColors.dark : appColors.light;
 
-    const tagBgColor = cardProps.type === 'seeker'
+    const tagBgColor = cardInfo.post.post_type === 'seeker'
     ? 'bg-primary-light'
     : 'bg-green-offer-light'
 
-    const tagTextColor = cardProps.type === 'seeker'
+    const tagTextColor = cardInfo.post.post_type === 'seeker'
     ? 'text-primary-text'  
     : 'text-green-offer-text';
 
-    const buttonColor = cardProps.type === 'seeker'
+    const buttonColor = cardInfo.post.post_type === 'seeker'
     ? 'bg-primary'
     : 'bg-green-offer'
 
@@ -40,12 +41,12 @@ export default function InfoCard(cardProps: infoCardProps){
                 />
                 <View className="flex-1">
                     <CardTitle className="text-foreground font-inter-semibold text-lg">
-                        John Doe
+                        {cardInfo.post.creator.name}
                     </CardTitle>
                     <View className="flex-row items-center gap-1 mt-0.5">
                         <MapPin size={14} color={colors['--muted-foreground']} />
                         <Text className="text-muted-foreground font-inter text-sm">
-                            Honolulu, HI
+                            {cardInfo.post.location}
                         </Text>
                     </View>
                 </View>
@@ -58,22 +59,23 @@ export default function InfoCard(cardProps: infoCardProps){
             <CardContent className="gap-2">
                 <View className={`${tagBgColor} self-start px-3 py-1.5 rounded-full`}>
                     <Text className={`${tagTextColor} font-inter text-xs`}>
-                        Grocery Help
+                        {cardInfo.post.tags}
                     </Text>
                 </View>
                 
                 <CardTitle className="text-foreground font-inter-semibold text-base">
-                    Need help picking up groceries
+                    {cardInfo.post.title}
                 </CardTitle>
                 
                 <Text className="text-foreground font-inter text-sm leading-5">
-                    Looking for some assistance, could anyone pick up some milk for me this evening?
+                    {cardInfo.post.description}
                 </Text>
             </CardContent>
             
             {/**Just a line to divide */}
             <View className="border-t border-border mx-6" />
-
+            
+            {/**TODO make some function that gets the created at and calulates it based off current time */}
             <CardFooter className="flex-row justify-between items-center">
                 <View className="flex-row items-center gap-1.5">
                     <Clock size={16} color={colors['--muted-foreground']} />
