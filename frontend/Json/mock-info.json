@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "post_type": "SEEKER",
+    "title": "Need help moving furniture",
+    "description": "Need help moving furniture to a new apartment this weekend. Heavy lifting required.",
+    "tags": ["Moving Help"],
+    "location": "Seattle, WA",
+    "created_at": "2025-02-05T08:00:00Z",
+    "creator": {
+      "name": "Sarah Mitchell",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 2,
+    "post_type": "RUNNER",
+    "title": "Offering handyman services",
+    "description": "Professional handyman offering free help with home repairs on weekends.",
+    "tags": ["Handyman"],
+    "location": "Los Angeles, CA",
+    "created_at": "2025-02-05T09:00:00Z",
+    "creator": {
+      "name": "David Kim",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 3,
+    "post_type": "SEEKER",
+    "title": "Need grocery pickup",
+    "description": "Looking for someone to pick up groceries from Whole Foods. Will provide list and payment.",
+    "tags": ["Grocery Help"],
+    "location": "Portland, OR",
+    "created_at": "2025-02-05T10:30:00Z",
+    "creator": {
+      "name": "Michael Chen",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 4,
+    "post_type": "RUNNER",
+    "title": "Grocery shopping trips available",
+    "description": "Making weekly trips to Costco and Trader Joe's. Happy to grab items for neighbors.",
+    "tags": ["Grocery Help"],
+    "location": "San Francisco, CA",
+    "created_at": "2025-02-05T11:00:00Z",
+    "creator": {
+      "name": "Amanda Garcia",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 5,
+    "post_type": "SEEKER",
+    "title": "Dog walking needed",
+    "description": "Need someone to walk my golden retriever while I'm at work. Twice daily, one hour each.",
+    "tags": ["Pet Care"],
+    "location": "Austin, TX",
+    "created_at": "2025-02-05T07:15:00Z",
+    "creator": {
+      "name": "Jessica Taylor",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 6,
+    "post_type": "RUNNER",
+    "title": "Pet sitting services",
+    "description": "Experienced with dogs and cats. Available for daily visits or overnight stays.",
+    "tags": ["Pet Care"],
+    "location": "Denver, CO",
+    "created_at": "2025-02-05T12:45:00Z",
+    "creator": {
+      "name": "Carlos Rodriguez",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 7,
+    "post_type": "SEEKER",
+    "title": "Tech support needed",
+    "description": "Computer running slow, need help with virus removal and general cleanup.",
+    "tags": ["Tech Support"],
+    "location": "Boston, MA",
+    "created_at": "2025-02-04T14:20:00Z",
+    "creator": {
+      "name": "Robert Johnson",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 8,
+    "post_type": "RUNNER",
+    "title": "Free tech help available",
+    "description": "IT professional offering free tech support for seniors and neighbors. Computer setup, troubleshooting, etc.",
+    "tags": ["Tech Support"],
+    "location": "Miami, FL",
+    "created_at": "2025-02-04T15:00:00Z",
+    "creator": {
+      "name": "Emily Watson",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 9,
+    "post_type": "SEEKER",
+    "title": "Yard work assistance",
+    "description": "Need help raking leaves and trimming hedges. Large yard, will take a few hours.",
+    "tags": ["Yard Work"],
+    "location": "Nashville, TN",
+    "created_at": "2025-02-04T09:30:00Z",
+    "creator": {
+      "name": "Linda Martinez",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 10,
+    "post_type": "RUNNER",
+    "title": "Lawn care services",
+    "description": "Offering lawn mowing, edging, and basic landscaping. Have my own equipment.",
+    "tags": ["Yard Work"],
+    "location": "Phoenix, AZ",
+    "created_at": "2025-02-04T10:00:00Z",
+    "creator": {
+      "name": "James Wilson",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 11,
+    "post_type": "SEEKER",
+    "title": "Ride to airport needed",
+    "description": "Need a ride to the airport early morning on Saturday. Will cover gas.",
+    "tags": ["Transportation"],
+    "location": "Chicago, IL",
+    "created_at": "2025-02-03T16:45:00Z",
+    "creator": {
+      "name": "Patricia Lee",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 12,
+    "post_type": "RUNNER",
+    "title": "Airport runs available",
+    "description": "Making regular trips to airport for work. Happy to give rides to others heading same direction.",
+    "tags": ["Transportation"],
+    "location": "Atlanta, GA",
+    "created_at": "2025-02-03T17:30:00Z",
+    "creator": {
+      "name": "Thomas Anderson",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 13,
+    "post_type": "SEEKER",
+    "title": "Painting help needed",
+    "description": "Repainting living room and hallway. Need an extra pair of hands for the weekend.",
+    "tags": ["Home Improvement"],
+    "location": "Philadelphia, PA",
+    "created_at": "2025-02-03T11:20:00Z",
+    "creator": {
+      "name": "Maria Gonzalez",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 14,
+    "post_type": "RUNNER",
+    "title": "Home improvement assistance",
+    "description": "Experienced with painting, drywall, and minor repairs. Free help on weekends.",
+    "tags": ["Home Improvement"],
+    "location": "San Diego, CA",
+    "created_at": "2025-02-03T13:00:00Z",
+    "creator": {
+      "name": "Kevin Brown",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 15,
+    "post_type": "SEEKER",
+    "title": "Tutoring for high school math",
+    "description": "Teen struggling with algebra and geometry. Looking for patient tutor for after school sessions.",
+    "tags": ["Tutoring"],
+    "location": "Houston, TX",
+    "created_at": "2025-02-02T14:00:00Z",
+    "creator": {
+      "name": "Jennifer Davis",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 16,
+    "post_type": "RUNNER",
+    "title": "Free math tutoring",
+    "description": "Retired math teacher offering free tutoring for middle and high school students.",
+    "tags": ["Tutoring"],
+    "location": "Minneapolis, MN",
+    "created_at": "2025-02-02T15:30:00Z",
+    "creator": {
+      "name": "Richard Miller",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 17,
+    "post_type": "SEEKER",
+    "title": "Help assembling furniture",
+    "description": "Just bought new IKEA furniture. Need help putting together a dresser and bookshelf.",
+    "tags": ["Assembly"],
+    "location": "Brooklyn, NY",
+    "created_at": "2025-02-02T08:45:00Z",
+    "creator": {
+      "name": "Daniel Kim",
+      "avatar_url": null
+    }
+  },
+  {
+    "id": 18,
+    "post_type": "RUNNER",
+    "title": "Furniture assembly services",
+    "description": "Experienced with all types of furniture assembly. Have tools and can help same day.",
+    "tags": ["Assembly"],
+    "location": "Queens, NY",
+    "created_at": "2025-02-02T10:00:00Z",
+    "creator": {
+      "name": "Sophie Turner",
+      "avatar_url": null
+    }
+  }
+]

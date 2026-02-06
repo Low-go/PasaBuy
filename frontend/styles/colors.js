@@ -7,6 +7,8 @@ module.exports = {
     '--popover': '#ffffff',
     '--popover-foreground': '#111827',
     '--primary': '#2563eb',
+    '--primary-light': '#dbeafe',      
+    '--primary-text': '#1e40af',
     '--primary-foreground': '#ffffff',
     '--secondary': '#f3f4f6',
     '--secondary-foreground': '#111827',
@@ -32,6 +34,8 @@ module.exports = {
     '--popover-foreground': '#ffffff',
     // Remember this one I think this is one of our select colors
     '--primary': '#2563eb',
+    '--primary-light': '#1e3a8a',     
+    '--primary-text': '#ffffff',
     '--primary-foreground': '#ffffff',
     '--secondary': '#1f2937',
     '--secondary-foreground': '#d1d5db',

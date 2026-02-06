@@ -28,7 +28,7 @@ export default function HomeScreen() {
     {/**This Flatlist is what will help render our infinite scrolling later */}
     <FlatList
       data={[{"id": 1}, {"id": 2}, {"id": 3}, {"id": 4}, {"id": 5}, {"id": 6}, {"id": 7}, {"id": 8}]}
-      renderItem={({ item }) => <InfoCard />}
+      renderItem={({ item }) => <InfoCard type='seeker' activeView={dashboardView}/>}
       keyExtractor={(item) => String(item.id)}
       className="flex-1 bg-background"
       contentContainerStyle={{

@@ -5,7 +5,6 @@ interface Props{
     onViewChange: (view: 'seeker' | 'runner') => void;
 }
 
-
 export default function RunnerSeekerButton(buttonProps: Props){
     return(
         <View className="w-full flex-row gap-3 px-4">

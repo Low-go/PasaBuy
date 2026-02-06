@@ -5,11 +5,28 @@ import { MapPin, Clock } from 'lucide-react-native'
 import { useColorScheme } from 'react-native';
 import appColors from 'styles/colors';
 
-export default function InfoCard(){
+interface infoCardProps{
+    type: 'seeker'  |'runner';
+    activeView: 'seeker' | 'runner';
+}
+
+export default function InfoCard(cardProps: infoCardProps){
 
     // Note to self need to make a hook for these things later so I don't repeat this for every icon in a component
     const colorScheme = useColorScheme();
     const colors = colorScheme === 'dark' ? appColors.dark : appColors.light;
+
+    const tagBgColor = cardProps.type === 'seeker'
+    ? 'bg-primary-light'
+    : 'bg-green-offer-light'
+
+    const tagTextColor = cardProps.type === 'seeker'
+    ? 'text-primary-text'  
+    : 'text-green-offer-text';
+
+    const buttonColor = cardProps.type === 'seeker'
+    ? 'bg-primary'
+    : 'bg-green-offer'
 
     // Todo move out hardcoded values and let them be passed in via the data props
     
@@ -39,8 +56,8 @@ export default function InfoCard(){
              * and maybe make a list of premade tags? 
              */}
             <CardContent className="gap-2">
-                <View className="bg-green-offer-light self-start px-3 py-1.5 rounded-full">
-                    <Text className="text-green-offer-text font-inter text-xs">
+                <View className={`${tagBgColor} self-start px-3 py-1.5 rounded-full`}>
+                    <Text className={`${tagTextColor} font-inter text-xs`}>
                         Grocery Help
                     </Text>
                 </View>
@@ -65,7 +82,7 @@ export default function InfoCard(){
                     </Text>
                 </View>
                 
-                <Pressable className="bg-green-offer px-6 py-2.5 rounded-lg active:opacity-80">
+                <Pressable className= {`${buttonColor} px-6 py-2.5 rounded-lg active:opacity-80`}>
                     <Text className="text-primary-foreground font-inter-semibold text-sm">
                         Connect
                     </Text>
