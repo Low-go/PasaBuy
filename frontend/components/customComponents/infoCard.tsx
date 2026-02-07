@@ -29,6 +29,31 @@ export default function InfoCard(cardInfo: infoCardProps){
     ? 'bg-primary'
     : 'bg-green-offer'
 
+    // current date in milliseconds, versus date posted in millisecond
+    const calculateDate = () => {
+
+        const thresholds = [
+            { max: 60, divisor: 1, unit: 'second', plural: 'seconds' },
+            { max: 3600, divisor: 60, unit: 'minute', plural: 'minutes' },
+            { max: 86400, divisor: 3600, unit: 'hour', plural: 'hours' },
+            { max: 604800, divisor: 86400, unit: 'day', plural: 'days' },
+            { max: 2419200, divisor: 604800, unit: 'week', plural: 'weeks' }
+        ];
+
+        // time in seconds
+        const seconds = (new Date().getTime() -  Date.parse(cardInfo.post.created_at)) / 1000
+
+        for (const threshold of thresholds) {
+            if (seconds < threshold.max) {
+                const value = Math.floor(seconds / threshold.divisor);
+                return `${value} ${value === 1 ? threshold.unit : threshold.plural} ago`;
+            }
+        }
+
+        // deal with parsing the date and just handing the date itself past the threshold
+
+    }
+
     // Todo move out hardcoded values and let them be passed in via the data props
     
     return(
