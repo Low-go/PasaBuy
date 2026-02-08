@@ -4,12 +4,15 @@ import { View } from 'react-native';
 import 'react-native-reanimated';
 import "../global.css"
 import { PortalHost } from '@rn-primitives/portal';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useColorScheme } from 'react-native';
 import { SessionProvider, useSession } from '@/authContext';
 import { SplashScreenController } from '@/splash';
 import { useFonts, Inter_400Regular, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 import { vars } from 'nativewind';
 import appColors from 'styles/colors';
+import { Provider } from 'react-redux';
+import { store } from '@/redux/store';
+
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -39,14 +42,16 @@ export default function RootLayout() {
   const theme = colorScheme === 'dark' ? darkTheme : lightTheme;
 
   return (
-    <View style={[{ flex: 1 }, theme]}>
-      <SessionProvider>
-        <SplashScreenController/>
-        <RootNavigator/>
-      </SessionProvider>
-      <StatusBar style="auto" />
-      <PortalHost/>
-    </View>
+    <Provider store={store}>
+      <View style={[{ flex: 1 }, theme]}>
+        <SessionProvider>
+          <SplashScreenController/>
+          <RootNavigator/>
+        </SessionProvider>
+        <StatusBar style="auto" />
+        <PortalHost/>
+      </View>
+    </Provider>
   );
 }
 

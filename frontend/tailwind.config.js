@@ -17,6 +17,8 @@ module.exports = {
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',
+          light: 'var(--primary-light)',    
+          text: 'var(--primary-text)',     
         },
         secondary: {
           DEFAULT: 'var(--secondary)',
@@ -42,6 +44,11 @@ module.exports = {
           DEFAULT: 'var(--card)',
           foreground: 'var(--card-foreground)',
         },
+        'green-offer': {
+        DEFAULT: 'var(--green-offer)',
+        light: 'var(--green-offer-light)',
+        text: 'var(--green-offer-text)',
+      },
       },
       borderRadius: {
         lg: 'var(--radius)',
