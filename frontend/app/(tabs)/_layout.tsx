@@ -15,17 +15,16 @@ const Tab = createMaterialTopTabNavigator();
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   
-  // I might not need this since I am not using the previous default embedded and made tabs but a custom one
-  // TODO check if I can use our universal color scheme in className
+  // Tabs need injected colors and cannot use (as far as I know) classNames/tailwind
   const tabColors = colorScheme === 'light' 
     ? {
         active: '#2563eb',      
-        inactive: '#6b7280',    
+        inactive: '#111827',    
         background: '#ffffff',  
       }
     : {
         active: '#2563eb',      
-        inactive: '#9ca3af',    
+        inactive: '#ffffff',    
         background: '#1e2939',
       };
 
@@ -37,6 +36,8 @@ export default function TabLayout() {
         tabBarInactiveTintColor: tabColors.inactive,
         tabBarStyle: {
           backgroundColor: tabColors.background,
+            borderTopWidth: 1,
+            borderTopColor: colorScheme === 'light' ? '#e5e7eb' : '#374151',
         },
         tabBarLabelStyle: {
           fontFamily: 'Inter_600SemiBold',
@@ -81,4 +82,3 @@ export default function TabLayout() {
   );
 }
 
-//TODO Reamke header with the button and impport it into the respective tabs.

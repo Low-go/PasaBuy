@@ -32,7 +32,7 @@ export default function LightDark(){
     return (
         <Pressable onPress={handleToggle} className="p-2 m-2">
             {(colorScheme === 'light') ?
-            <Sun size={26} color='#6b7280'/>
+            <Sun size={26} color='#111827'/>
             :
             <Moon size={26} color='#ffffff'/>}
         </Pressable>

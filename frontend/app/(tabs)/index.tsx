@@ -1,10 +1,10 @@
 import { Text, View, Pressable, FlatList } from 'react-native';
-import { useSession } from '../../authContext';
 import InfoCard from '@/components/customComponents/infoCard';
 import { useEffect, useRef, useState } from 'react';
 import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton';
 import { Post } from '@/types/post';
 import InfoCardSkeleton from '@/components/customComponents/infoCardSkeleton';
+import Header from '@/components/customComponents/header';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
@@ -12,7 +12,7 @@ import { loadLocalRawResource } from 'react-native-svg';
 const posts = mockPosts as Post[];
 
 export default function HomeScreen() {
-  const { signOut } = useSession();
+  
 
   /**
    * Runner and Seeker share a dashboard. Because of that we manage both their
@@ -106,13 +106,9 @@ export default function HomeScreen() {
   return (
 
     <View className="flex-1 bg-background">
+      <Header/>
     {/* Temporary header / controls, button ti=o switch views will be here later */}
     <View className="items-center justify-center py-6">
-      <Pressable onPress={signOut}>
-        <Text className="text-lg font-inter-semibold text-primary">
-          Sign Out
-        </Text>
-      </Pressable>
       <RunnerSeekerButton 
         activeView={dashboardView}
         onViewChange={setDashboardView}
