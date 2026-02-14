@@ -31,13 +31,22 @@ export default function InfoCard(cardInfo: infoCardProps){
 
     // current date in milliseconds, versus date posted in millisecond
     const calculateDate = () => {
+        
+        const MINUTE = 60;
+        const HOUR = 60 * MINUTE;
+        const DAY = 24 * HOUR;            
+        const WEEK = 7 * DAY;              
+        const MONTH = 30 * DAY;          
+        const YEAR = 365 * DAY;            
 
         const thresholds = [
-            { max: 60, divisor: 1, unit: 'second', plural: 'seconds' },
-            { max: 3600, divisor: 60, unit: 'minute', plural: 'minutes' },
-            { max: 86400, divisor: 3600, unit: 'hour', plural: 'hours' },
-            { max: 604800, divisor: 86400, unit: 'day', plural: 'days' },
-            { max: 2419200, divisor: 604800, unit: 'week', plural: 'weeks' }
+            { max: MINUTE, divisor: 1, unit: 'second', plural: 'seconds' },
+            { max: HOUR, divisor: MINUTE, unit: 'minute', plural: 'minutes' },
+            { max: DAY, divisor: HOUR, unit: 'hour', plural: 'hours' },
+            { max: WEEK, divisor: DAY, unit: 'day', plural: 'days' },
+            { max: MONTH, divisor: WEEK, unit: 'week', plural: 'weeks' },
+            { max: YEAR, divisor: MONTH, unit: 'month', plural: 'months' },
+            { max: Infinity, divisor: YEAR, unit: 'year', plural: 'years' }
         ];
 
         // time in seconds
@@ -50,7 +59,6 @@ export default function InfoCard(cardInfo: infoCardProps){
             }
         }
 
-        // deal with parsing the date and just handing the date itself past the threshold
 
     }
 
@@ -105,7 +113,7 @@ export default function InfoCard(cardInfo: infoCardProps){
                 <View className="flex-row items-center gap-1.5">
                     <Clock size={16} color={colors['--muted-foreground']} />
                     <Text className="text-muted-foreground font-inter text-sm">
-                        1 hour ago
+                        {calculateDate()}
                     </Text>
                 </View>
                 

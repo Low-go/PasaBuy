@@ -5,6 +5,7 @@ import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton
 import { Post } from '@/types/post';
 import InfoCardSkeleton from '@/components/customComponents/infoCardSkeleton';
 import Header from '@/components/customComponents/header';
+import { ActivityIndicator } from 'react-native';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
@@ -134,6 +135,8 @@ export default function HomeScreen() {
       onEndReached={LoadPosts}
       onEndReachedThreshold={0} // should trigger when user is 70 percent of the way down
       className="flex-1 bg-background"
+      ListFooterComponent={isLoading ? <ActivityIndicator size="large" /> : null} // needs some twiddling
+      ListFooterComponentStyle={{ marginTop: 20 }} // is this ok? is this standard? do i not use tailwind?
       contentContainerStyle={{
         flexGrow: 1,
         padding: 6,

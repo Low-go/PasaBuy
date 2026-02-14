@@ -2,7 +2,7 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Home, MessageCircle, User, Handshake } from 'lucide-react-native';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import LightDark from '@/components/customComponents/lightDark';
+import * as Haptics from 'expo-haptics';
 
 // Import your screen components
 import HomeScreen from './index';
@@ -48,6 +48,11 @@ export default function TabLayout() {
         },
         swipeEnabled: true,
         lazy: false,
+      }}
+      screenListeners={{
+        tabPress: (e) => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+        },
       }}
     >
       <Tab.Screen 
