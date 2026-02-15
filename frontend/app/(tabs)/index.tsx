@@ -1,9 +1,11 @@
 import { Text, View, Pressable, FlatList } from 'react-native';
-import { useSession } from '../../authContext';
 import InfoCard from '@/components/customComponents/infoCard';
 import { useEffect, useRef, useState } from 'react';
 import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton';
 import { Post } from '@/types/post';
+import InfoCardSkeleton from '@/components/customComponents/infoCardSkeleton';
+import Header from '@/components/customComponents/header';
+import { ActivityIndicator } from 'react-native';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
@@ -11,7 +13,7 @@ import { loadLocalRawResource } from 'react-native-svg';
 const posts = mockPosts as Post[];
 
 export default function HomeScreen() {
-  const { signOut } = useSession();
+  
 
   /**
    * Runner and Seeker share a dashboard. Because of that we manage both their
@@ -30,6 +32,9 @@ export default function HomeScreen() {
   // state for seeker
   const [seekerDisplayedPosts, setSeekerDisplayedPosts] = useState<Post[]>([]);
   const [seekerCurrentPage, setSeekerCurrentDisplay] = useState<number>(1);
+
+  //keeps track of loading state
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
 
   // Based on current view show these posts
   const displayedPosts = dashboardView === 'runner'
@@ -54,11 +59,16 @@ export default function HomeScreen() {
  * This current setup uses .slice() to simulate pagination while backend is not ready.
  */
   useEffect(() => {
-    const filterRunner = posts.filter(post => post.post_type === 'runner').slice(0,20);
-    const filterSeeker = posts.filter(post => post.post_type === 'seeker').slice(0,20);
-    
-    setRunnerDisplayedPosts(filterRunner);
-    setSeekerDisplayedPosts(filterSeeker);
+    // Manual couple second load to mimic fetching info backend
+    setIsLoading(true);
+    setTimeout(()=> {
+      const filterRunner = posts.filter(post => post.post_type === 'runner').slice(0,20);
+      const filterSeeker = posts.filter(post => post.post_type === 'seeker').slice(0,20);
+      
+      setRunnerDisplayedPosts(filterRunner);
+      setSeekerDisplayedPosts(filterSeeker);
+      setIsLoading(false);
+    }, 5500);
   }, []);
 
   const ITEMS_PER_PAGE = 20;
@@ -92,18 +102,14 @@ export default function HomeScreen() {
       }
     }
   }
-  // ----- End of test stuff, everything in this box will need to be changed when backend is setup------
+//// ----- End of test stuff, everything in this box will need to be changed when backend is setup------
   
   return (
 
     <View className="flex-1 bg-background">
+      <Header/>
     {/* Temporary header / controls, button ti=o switch views will be here later */}
     <View className="items-center justify-center py-6">
-      <Pressable onPress={signOut}>
-        <Text className="text-lg font-inter-semibold text-primary">
-          Sign Out
-        </Text>
-      </Pressable>
       <RunnerSeekerButton 
         activeView={dashboardView}
         onViewChange={setDashboardView}
@@ -116,9 +122,21 @@ export default function HomeScreen() {
       data= {displayedPosts}
       renderItem={({ item }) => <InfoCard post={item} activeView={dashboardView}/>}
       keyExtractor={(item) => String(item.id)}
+      ListEmptyComponent={
+        isLoading ? (
+          <View className="gap-4">
+            <InfoCardSkeleton/>
+            <InfoCardSkeleton/>
+            <InfoCardSkeleton/>
+            <InfoCardSkeleton/>
+          </View>
+        ) : null
+      }
       onEndReached={LoadPosts}
       onEndReachedThreshold={0} // should trigger when user is 70 percent of the way down
       className="flex-1 bg-background"
+      ListFooterComponent={isLoading ? <ActivityIndicator size="large" /> : null} // needs some twiddling
+      ListFooterComponentStyle={{ marginTop: 20 }} // is this ok? is this standard? do i not use tailwind?
       contentContainerStyle={{
         flexGrow: 1,
         padding: 6,
