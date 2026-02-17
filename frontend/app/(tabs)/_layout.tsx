@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Home, MessageCircle, User, Handshake } from 'lucide-react-native';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import * as Haptics from 'expo-haptics';
 
-// Import your screen components
+// Import screen components
 import HomeScreen from './index';
 import OffersScreen from './offers';
 import NotificationsScreen from './notifications';
 import ProfileScreen from './profile';
-
 const Tab = createMaterialTopTabNavigator();
 
 export default function TabLayout() {
@@ -49,8 +48,12 @@ export default function TabLayout() {
         swipeEnabled: true,
         lazy: false,
       }}
+      // Haptics when clicking anotehr tab or swiping the screen
       screenListeners={{
         tabPress: (e) => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+        },
+        swipeStart: () => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         },
       }}
