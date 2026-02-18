@@ -6,7 +6,7 @@ import { apiFetch } from "../utils/apifetch";
 const initialState: {
     runnerPosts: Post[],
     seekerPosts: Post[],
-    status: "idle" | "loading" | "succeded" | "failed";
+    status: "idle" | "loading" | "succeeded" | "failed"
     error: string | null
 } = {
     runnerPosts: [],
@@ -33,11 +33,11 @@ export const postSlice = createSlice({
                 state.status = "loading"
             })
             .addCase(fetchPostThunk.fulfilled, (state, action) => {
-                state.status = "succeded"
+                state.status = "succeeded"
                 state.runnerPosts = action.payload.runnerPosts
                 state.seekerPosts = action.payload.seekerPosts
             })
-            .addCase(fetchPostThunk.fulfilled, (state) => {
+            .addCase(fetchPostThunk.rejected, (state) => {
                 state.status = "failed"
             })
     }
@@ -48,7 +48,7 @@ export const fetchPostThunk = createAsyncThunk(
     "posts/fetchPosts",
     // page number for pagination
     async(page: number = 1) => {
-        const response = await apiFetch(`posts?page=${page}`);
+        const response = await apiFetch(`/posts?page=${page}`);
         const json = await response.json();
         return json;
     }
