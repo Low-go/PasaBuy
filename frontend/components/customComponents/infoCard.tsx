@@ -7,19 +7,20 @@ import appColors from 'styles/colors';
 import { Post } from '../../redux/types/index';
 import { ChevronDown } from "lucide-react-native";
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } from 'react-native-reanimated';
+import { getAvatar } from "@/redux/utils/avatars";
 
 interface infoCardProps{
     post: Post;
     activeView: 'seeker' | 'runner';
 }
 
-export default function InfoCard(cardInfo: infoCardProps){
-
+export default function InfoCard({ post, activeView }: infoCardProps){
+ 
     const [expanded, setExpanded] = useState(false);
     const rotation = useSharedValue(0);
     const maxHeight = useSharedValue(40);
     const  CHAR_LIMIT = 100;
-    const isLong = cardInfo.post.description.length > CHAR_LIMIT;
+    const isLong = post.description.length > CHAR_LIMIT;
 
     // Animation for expand/ show more
     const chevronStyle = useAnimatedStyle(() => ({
@@ -42,15 +43,15 @@ export default function InfoCard(cardInfo: infoCardProps){
     const colorScheme = useColorScheme();
     const colors = colorScheme === 'dark' ? appColors.dark : appColors.light;
 
-    const tagBgColor = cardInfo.post.post_type === 'seeker'
+    const tagBgColor = post.post_type === 'seeker'
     ? 'bg-primary-light'
     : 'bg-green-offer-light'
 
-    const tagTextColor = cardInfo.post.post_type === 'seeker'
+    const tagTextColor = post.post_type === 'seeker'
     ? 'text-primary-text'  
     : 'text-green-offer-text';
 
-    const buttonColor = cardInfo.post.post_type === 'seeker'
+    const buttonColor = post.post_type === 'seeker'
     ? 'bg-primary'
     : 'bg-green-offer'
 
@@ -75,7 +76,7 @@ export default function InfoCard(cardInfo: infoCardProps){
         ];
 
         // time in seconds
-        const seconds = (new Date().getTime() -  Date.parse(cardInfo.post.created_at)) / 1000
+        const seconds = (new Date().getTime() -  Date.parse(post.created_at)) / 1000
 
         for (const threshold of thresholds) {
             if (seconds < threshold.max) {
@@ -94,17 +95,17 @@ export default function InfoCard(cardInfo: infoCardProps){
             <CardHeader className="flex-row gap-3">
                 <Image 
                     // hardcoded for now
-                    source={require('../../assets/images/bunny.jpg')}
+                    source={getAvatar(post.creator.avatar_url)}
                     className="w-12 h-12 rounded-full"
                 />
                 <View className="flex-1">
                     <CardTitle className="text-foreground font-inter-semibold text-lg">
-                        {cardInfo.post.creator.name}
+                        {post.creator.name}
                     </CardTitle>
                     <View className="flex-row items-center gap-1 mt-0.5">
                         <MapPin size={14} color={colors['--muted-foreground']} />
                         <Text className="text-muted-foreground font-inter text-sm">
-                            {cardInfo.post.location}
+                            {post.location}
                         </Text>
                     </View>
                 </View>
@@ -117,12 +118,12 @@ export default function InfoCard(cardInfo: infoCardProps){
             <CardContent className="gap-2">
                 <View className={`${tagBgColor} self-start px-3 py-1.5 rounded-full`}>
                     <Text className={`${tagTextColor} font-inter text-xs`}>
-                        {cardInfo.post.tags}
+                        {post.tags}
                     </Text>
                 </View>
                 
                 <CardTitle className="text-foreground font-inter-semibold text-base">
-                    {cardInfo.post.title}
+                    {post.title}
                 </CardTitle>
                 
                 {/* <Text className="text-foreground font-inter text-sm leading-5">
@@ -131,7 +132,7 @@ export default function InfoCard(cardInfo: infoCardProps){
                 <View>
                     <Animated.View style={textContainerStyle}>
                         <Text className="text-foreground font-inter text-sm leading-5">
-                            {cardInfo.post.description}
+                            {post.description}
                         </Text>
                     </Animated.View>
                     {isLong && (

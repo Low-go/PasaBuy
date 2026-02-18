@@ -69,7 +69,7 @@ export default function HomeScreen() {
       setRunnerDisplayedPosts(filterRunner);
       setSeekerDisplayedPosts(filterSeeker);
       setIsLoading(false);
-    }, 5500);
+    }, 1000);
   }, []);
 
   const ITEMS_PER_PAGE = 20;
