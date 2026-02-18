@@ -10,7 +10,7 @@ import CreatePostButton from '@/components/customComponents/createPostButton';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
-import { loadLocalRawResource } from 'react-native-svg';
+
 const posts = mockPosts as Post[];
 
 export default function HomeScreen() {
