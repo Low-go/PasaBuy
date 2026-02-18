@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Text, Image, View, Pressable } from 'react-native';
 import { MapPin, Clock } from 'lucide-react-native'
 import { useColorScheme } from 'react-native';
 import appColors from 'styles/colors';
 import { Post } from '../../redux/types/index';
+import { ChevronDown } from "lucide-react-native";
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } from 'react-native-reanimated';
 
 interface infoCardProps{
     post: Post;
@@ -12,6 +14,29 @@ interface infoCardProps{
 }
 
 export default function InfoCard(cardInfo: infoCardProps){
+
+    const [expanded, setExpanded] = useState(false);
+    const rotation = useSharedValue(0);
+    const maxHeight = useSharedValue(40);
+    const  CHAR_LIMIT = 100;
+    const isLong = cardInfo.post.description.length > CHAR_LIMIT;
+
+    // Animation for expand/ show more
+    const chevronStyle = useAnimatedStyle(() => ({
+        transform: [{ rotate: `${interpolate(rotation.value, [0, 1], [0, 180])}deg` }]
+    }));
+
+    const textContainerStyle = useAnimatedStyle(() => ({
+        overflow: 'hidden',
+        maxHeight: withTiming(maxHeight.value, { duration: 320 }),
+    }));
+
+    const handleToggle = () => {
+        const nextExpanded = !expanded;
+        maxHeight.value = nextExpanded ? 400 : 40;
+        rotation.value = withTiming(nextExpanded ? 1 : 0, { duration: 200 });
+        setExpanded(nextExpanded);
+    };
 
     // Note to self need to make a hook for these things later so I don't repeat this for every icon in a component
     const colorScheme = useColorScheme();
@@ -100,9 +125,29 @@ export default function InfoCard(cardInfo: infoCardProps){
                     {cardInfo.post.title}
                 </CardTitle>
                 
-                <Text className="text-foreground font-inter text-sm leading-5">
+                {/* <Text className="text-foreground font-inter text-sm leading-5">
                     {cardInfo.post.description}
-                </Text>
+                </Text> */}
+                <View>
+                    <Animated.View style={textContainerStyle}>
+                        <Text className="text-foreground font-inter text-sm leading-5">
+                            {cardInfo.post.description}
+                        </Text>
+                    </Animated.View>
+                    {isLong && (
+                        <Pressable
+                            onPress={handleToggle}
+                            className="flex-row items-center gap-1 mt-1"
+                        >
+                            <Text className="text-muted-foreground font-inter text-xs">
+                                {expanded ? 'show less' : 'show more'}
+                            </Text>
+                            <Animated.View style={chevronStyle}>
+                                <ChevronDown size={14} color={colors['--muted-foreground']} />
+                            </Animated.View>
+                        </Pressable>
+                    )}
+                </View>
             </CardContent>
             
             {/**Just a line to divide */}
@@ -118,7 +163,7 @@ export default function InfoCard(cardInfo: infoCardProps){
                 </View>
                 
                 <Pressable className= {`${buttonColor} px-6 py-2.5 rounded-lg active:opacity-80`}>
-                    <Text className="text-primary-foreground font-inter-semibold text-sm">
+                    <Text className="text-primary-foreground font-inter-semibold to text-sm">
                         Connect
                     </Text>
                 </Pressable>

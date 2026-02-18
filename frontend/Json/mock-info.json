@@ -3,7 +3,7 @@
     "id": 1,
     "post_type": "seeker",
     "title": "Need help moving furniture",
-    "description": "Need help moving furniture to a new apartment this weekend. Heavy lifting required.",
+    "description": "Need help moving furniture to a new apartment this weekend. Heavy lifting required. This is a much larger extension of the request to showcase descriptions that pass the original cards size, but of course a limit in characters for both title and description is something that will be necessary to implement in the future as is the case ",
     "tags": ["Moving Help"],
     "location": "Seattle, WA",
     "created_at": "2024-08-15T14:22:00Z",

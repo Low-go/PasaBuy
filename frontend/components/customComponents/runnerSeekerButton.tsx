@@ -22,7 +22,7 @@ export default function RunnerSeekerButton(buttonProps: Props){
                     ? 'text-primary-foreground' 
                     : 'text-foreground'
                 }`}>
-                    ♡ Request Help
+                    ♡ Requests
                 </Text>
             </Pressable>
                         <Pressable 
@@ -39,7 +39,7 @@ export default function RunnerSeekerButton(buttonProps: Props){
                     ? 'text-primary-foreground' 
                     : 'text-foreground'
                 }`}>
-                    ♡ Offer Help
+                    ♡ Offers
                 </Text>
             </Pressable>
         </View>
