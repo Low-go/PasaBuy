@@ -6,6 +6,7 @@ import { Post } from '../../redux/types/index';
 import InfoCardSkeleton from '@/components/customComponents/infoCardSkeleton';
 import Header from '@/components/customComponents/header';
 import { ActivityIndicator } from 'react-native';
+import CreatePostButton from '@/components/customComponents/createPostButton';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
@@ -145,6 +146,7 @@ export default function HomeScreen() {
       }}
       ItemSeparatorComponent={() => <View className='h-4'/>}
       />
+      <CreatePostButton state={dashboardView}/>
     </View>
   );
 }

@@ -7,7 +7,7 @@ import * as Haptics from 'expo-haptics';
 // Import screen components
 import HomeScreen from './index';
 import OffersScreen from './offers';
-import NotificationsScreen from './notifications';
+import NotificationsScreen from './chats';
 import ProfileScreen from './profile';
 const Tab = createMaterialTopTabNavigator();
 
