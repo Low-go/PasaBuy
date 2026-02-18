@@ -2,7 +2,7 @@ import { Text, View, Pressable, FlatList } from 'react-native';
 import InfoCard from '@/components/customComponents/infoCard';
 import { useEffect, useRef, useState } from 'react';
 import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton';
-import { Post } from '@/types/post';
+import { Post } from '../../redux/types/index';
 import InfoCardSkeleton from '@/components/customComponents/infoCardSkeleton';
 import Header from '@/components/customComponents/header';
 import { ActivityIndicator } from 'react-native';

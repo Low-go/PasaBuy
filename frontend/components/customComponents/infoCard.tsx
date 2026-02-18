@@ -4,7 +4,7 @@ import { Text, Image, View, Pressable } from 'react-native';
 import { MapPin, Clock } from 'lucide-react-native'
 import { useColorScheme } from 'react-native';
 import appColors from 'styles/colors';
-import { Post } from "@/types/post";
+import { Post } from '../../redux/types/index';
 
 interface infoCardProps{
     post: Post;
