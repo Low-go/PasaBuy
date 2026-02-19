@@ -4,9 +4,11 @@ import { cn } from '@/lib/utils';
 import * as DialogPrimitive from '@rn-primitives/dialog';
 import { X } from 'lucide-react-native';
 import * as React from 'react';
-import { Platform, Text, View, type ViewProps } from 'react-native';
+import { Platform, Text, View, type ViewProps, Pressable } from 'react-native';
 import { FadeIn, FadeOut } from 'react-native-reanimated';
 import { FullWindowOverlay as RNFullWindowOverlay } from 'react-native-screens';
+import { useAnimatedKeyboard, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 
 const Dialog = DialogPrimitive.Root;
 
@@ -26,6 +28,20 @@ function DialogOverlay({
   React.RefAttributes<DialogPrimitive.OverlayRef> & {
     children?: React.ReactNode;
   }) {
+
+  
+  // Animation for modal when keyboard is dtected so it moves upward.
+  const keyboard = useAnimatedKeyboard();
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ 
+      translateY: keyboard.height.value > 0 
+        ? withTiming(-150, { duration: 250 }) 
+        : withTiming(0, { duration: 250 }) 
+    }],
+  }));
+
+  console.log('animatedStyle created, about to render');
+// if anything breaks or crashes this might be the culprit, weird workaround to getting the modal to move up, I don't understand it very well. Animated.View
   return (
     <FullWindowOverlay>
       <DialogPrimitive.Overlay
@@ -39,8 +55,14 @@ function DialogOverlay({
         {...props}
         asChild={Platform.OS !== 'web'}>
         <NativeOnlyAnimatedView entering={FadeIn.duration(200)} exiting={FadeOut.duration(150)}>
+          {/* <Pressable 
+            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} 
+            onPress={Keyboard.dismiss} 
+          /> */}
           <NativeOnlyAnimatedView entering={FadeIn.delay(50)} exiting={FadeOut.duration(150)}>
+            <Animated.View style={[animatedStyle, { width: '100%' }]} > 
             <>{children}</>
+            </Animated.View>
           </NativeOnlyAnimatedView>
         </NativeOnlyAnimatedView>
       </DialogPrimitive.Overlay>

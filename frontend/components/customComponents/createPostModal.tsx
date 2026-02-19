@@ -1,4 +1,4 @@
-import { View, Text, KeyboardAvoidingView } from "react-native";
+import { View, Text, Keyboard } from "react-native";
 import { Dialog, 
 DialogContent, 
 DialogHeader, 
@@ -25,15 +25,15 @@ export default function CreatePostModal({open,  dashboardState, onOpenChange}: {
                     {dashboardState === 'seeker' 
                         ? <DialogTitle className="font-inter-semibold text-foreground">Make a Request</DialogTitle> 
                         : <DialogTitle className="font-inter-semibold text-foreground">Offer Some Help</DialogTitle>}
-                    {/* <DialogDescription className="font-inter">fdfffffffffffffffff</DialogDescription> */}
+                    
                 </DialogHeader>
                 <View className="min-w-80">
                     <Label className="font-inter">Title</Label>
-                    <Input className ="font-inter" placeholder="Post Title"/>
+                    <Input className ="font-inter" placeholder="Post Title" onSubmitEditing={Keyboard.dismiss}/>
                 </View>
                 <View className="min-w-80">
                     <Label className="font-inter">Description</Label>
-                    <Input multiline numberOfLines={5} textAlignVertical="top" className="h-28 font=inter" placeholder="Describe your Request"/>
+                    <Input multiline numberOfLines={5} textAlignVertical="top" className="h-28 font=inter" placeholder="Describe your Request" onSubmitEditing={Keyboard.dismiss}/>
                 </View>
                 <DialogFooter className="flex-row justify-end">
                     <DialogClose asChild>
