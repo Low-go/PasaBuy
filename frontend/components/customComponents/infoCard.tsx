@@ -94,7 +94,6 @@ export default function InfoCard({ post, activeView }: infoCardProps){
         <Card className="w-full">
             <CardHeader className="flex-row gap-3">
                 <Image 
-                    // hardcoded for now
                     source={getAvatar(post.creator.avatar_url)}
                     className="w-12 h-12 rounded-full"
                 />

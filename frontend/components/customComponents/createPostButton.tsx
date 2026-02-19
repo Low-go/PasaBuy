@@ -4,7 +4,7 @@ import CreatePostModal from "./createPostModal";
 import { useState } from "react";
 
 interface createPostButtonProps{
-    state: string
+    state: 'seeker' | 'runner'
 }
 
 export default function CreatePostButton(props: createPostButtonProps){
@@ -21,7 +21,7 @@ export default function CreatePostButton(props: createPostButtonProps){
                 <Plus size={32} color="#ffffff"/>
             </Pressable>
 
-            <CreatePostModal open={isOpen} onOpenChange={setIsOpen}/>
+            <CreatePostModal open={isOpen}  dashboardState={props.state} onOpenChange={setIsOpen}/>
         </>
     )
 }
