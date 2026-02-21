@@ -2,14 +2,15 @@ import { Text, View, Pressable, FlatList } from 'react-native';
 import InfoCard from '@/components/customComponents/infoCard';
 import { useEffect, useRef, useState } from 'react';
 import RunnerSeekerButton from '@/components/customComponents/runnerSeekerButton';
-import { Post } from '@/types/post';
+import { Post } from '../../redux/types/index';
 import InfoCardSkeleton from '@/components/customComponents/infoCardSkeleton';
 import Header from '@/components/customComponents/header';
 import { ActivityIndicator } from 'react-native';
+import CreatePostButton from '@/components/customComponents/createPostButton';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
-import { loadLocalRawResource } from 'react-native-svg';
+
 const posts = mockPosts as Post[];
 
 export default function HomeScreen() {
@@ -68,7 +69,7 @@ export default function HomeScreen() {
       setRunnerDisplayedPosts(filterRunner);
       setSeekerDisplayedPosts(filterSeeker);
       setIsLoading(false);
-    }, 5500);
+    }, 1000);
   }, []);
 
   const ITEMS_PER_PAGE = 20;
@@ -145,6 +146,7 @@ export default function HomeScreen() {
       }}
       ItemSeparatorComponent={() => <View className='h-4'/>}
       />
+      <CreatePostButton state={dashboardView}/>
     </View>
   );
 }

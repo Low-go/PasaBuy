@@ -1,4 +1,6 @@
 import { View, Text } from 'react-native';
+import createPostButton from '@/components/customComponents/createPostButton';
+import CreatePostButton from '@/components/customComponents/createPostButton';
 
 export default function NotificationsScreen() {
   return (
