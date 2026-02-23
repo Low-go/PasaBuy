@@ -8,6 +8,9 @@ import { Post } from '../../redux/types/index';
 import { ChevronDown } from "lucide-react-native";
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } from 'react-native-reanimated';
 import { getAvatar } from "@/redux/utils/avatars";
+import { router } from "expo-router";
+
+
 
 interface infoCardProps{
     post: Post;
@@ -162,7 +165,7 @@ export default function InfoCard({ post, activeView }: infoCardProps){
                     </Text>
                 </View>
                 
-                <Pressable className= {`${buttonColor} px-6 py-2.5 rounded-lg active:opacity-80`}>
+                <Pressable  onPress={() => router.push('/proposalScreen')} className= {`${buttonColor} px-6 py-2.5 rounded-lg active:opacity-80`}>
                     <Text className="text-primary-foreground font-inter-semibold to text-sm">
                         Connect
                     </Text>
