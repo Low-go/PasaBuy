@@ -1,9 +1,12 @@
-import { View, Text } from 'react-native';
+import { Text, Image, View, Pressable  } from 'react-native';
+import { MapPin, Clock } from 'lucide-react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Post } from '../redux/types/index';
 import { useLocalSearchParams } from 'expo-router';
 import { useAppSelector } from '@/redux/store';
-
+import { getAvatar } from "@/redux/utils/avatars";
+import { useColorScheme } from 'react-native';
+import appColors from 'styles/colors';
 
 export default function ProposalScreen() {
 
@@ -20,20 +23,39 @@ export default function ProposalScreen() {
     state.post.seekerPosts.find(p => p.id === numericId)
   );
 
-  
 
-  // test
+    const colorScheme = useColorScheme();
+    const colors = colorScheme === 'dark' ? appColors.dark : appColors.light;
 
-  console.log('param id:', id);
-  console.log('post found:', post);
-
-
+  if (!post) return null; // don't know about this
 
   return (
-    <SafeAreaView className='flex-1 bg-background'>
-      
-        <Text> {post?.title}</Text>
-        <Text>test</Text>
+    <SafeAreaView className='flex-1 bg-background p-1'>
+      <View className='w-full flex-1 border border-border rounded-md p-4'>
+        {/* This is the posts portion of the Screen */}
+        <View className='flex-row gap-3'>
+          <Image 
+            source={getAvatar(post.creator.avatar_url)}
+            className="w-12 h-12 rounded-full"
+          />
+          <View className='flex-1'>
+            <Text className='text-foreground font-inter-semibold text-lg'>
+              {post.creator.name}
+            </Text>
+              <View className="flex-row items-center gap-1 mt-0.5">
+                  <MapPin size={14} color={colors['--muted-foreground']} />
+                  <Text className="text-muted-foreground font-inter text-sm">
+                      {post.location}
+                  </Text>
+              </View>
+          </View>
+        </View>
+
+        <View>
+
+        </View>
+        {/* This is the proposals portion */}
+      </View>
     
     </SafeAreaView>
   )
