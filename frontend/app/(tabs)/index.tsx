@@ -10,6 +10,8 @@ import CreatePostButton from '@/components/customComponents/createPostButton';
 
 //this is simply to test card component functionality while there is no backend configured atm
 import mockPosts from '../../Json/mock-info.json';
+import { useAppDispatch, useAppSelector } from '@/redux/store';
+import { appendRunnerPosts, appendSeekerPosts, setMockPosts } from '@/redux/slices/postSlice';
 
 const posts = mockPosts as Post[];
 
@@ -27,11 +29,11 @@ export default function HomeScreen() {
   // const filteredPosts = posts.filter(post => post.post_type === dashboardView)
 
   // State for runner
-  const [runnerDisplayedPosts, setRunnerDisplayedPosts] = useState<Post[]>([]);
+  const runnerDisplayedPosts = useAppSelector(state => state.post.runnerPosts);
   const [runnerCurrentPage, setRunnerCurrentDisplay] = useState<number>(1);
 
   // state for seeker
-  const [seekerDisplayedPosts, setSeekerDisplayedPosts] = useState<Post[]>([]);
+  const seekerDisplayedPosts = useAppSelector(state => state.post.seekerPosts);
   const [seekerCurrentPage, setSeekerCurrentDisplay] = useState<number>(1);
 
   //keeps track of loading state
@@ -59,15 +61,19 @@ export default function HomeScreen() {
  * as the user scrolls. The backend will handle pagination via page/limit parameters.
  * This current setup uses .slice() to simulate pagination while backend is not ready.
  */
+
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     // Manual couple second load to mimic fetching info backend
     setIsLoading(true);
     setTimeout(()=> {
-      const filterRunner = posts.filter(post => post.post_type === 'runner').slice(0,20);
-      const filterSeeker = posts.filter(post => post.post_type === 'seeker').slice(0,20);
+      const runnerPosts = posts.filter(post => post.post_type === 'runner').slice(0,20);
+      const seekerPosts = posts.filter(post => post.post_type === 'seeker').slice(0,20);
       
-      setRunnerDisplayedPosts(filterRunner);
-      setSeekerDisplayedPosts(filterSeeker);
+      // setRunnerDisplayedPosts(filterRunner);
+      // setSeekerDisplayedPosts(filterSeeker);
+      dispatch(setMockPosts({ runnerPosts, seekerPosts }))
       setIsLoading(false);
     }, 1000);
   }, []);
@@ -86,7 +92,7 @@ export default function HomeScreen() {
       
       // Only update if there are more posts to load
       if (nextBatch.length > 0) {
-        setRunnerDisplayedPosts(prev => [...prev, ...nextBatch]);
+        dispatch(appendRunnerPosts(nextBatch))
         setRunnerCurrentDisplay(runnerCurrentPage + 1);
       }
     } else {
@@ -98,7 +104,7 @@ export default function HomeScreen() {
       const nextBatch = allSeekerPosts.slice(startIndex, endIndex);
       
       if (nextBatch.length > 0) {
-        setSeekerDisplayedPosts(prev => [...prev, ...nextBatch]);
+        dispatch(appendSeekerPosts(nextBatch));
         setSeekerCurrentDisplay(seekerCurrentPage + 1);
       }
     }

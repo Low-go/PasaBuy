@@ -23,6 +23,18 @@ export const postSlice = createSlice({
         clearPosts: (state) => {
             state.runnerPosts = [],
             state.seekerPosts = []
+        },
+
+        //TODO remove when we set up the EndPoints all states below. Make thunks instead
+        setMockPosts: (state, action) => {
+            state.runnerPosts = action.payload.runnerPosts
+            state.seekerPosts = action.payload.seekerPosts
+        },
+        appendRunnerPosts: (state, action) => {
+            state.runnerPosts = [...state.runnerPosts, ...action.payload]
+        },
+        appendSeekerPosts: (state, action) => {
+            state.seekerPosts = [...state.seekerPosts, ...action.payload]
         }
     },
     // used for thunks/api async calls
@@ -97,6 +109,6 @@ export const deletePostThunk = createAsyncThunk(
 // No update method for now will think on it
 
 
-export const {clearPosts} = postSlice.actions
+export const {clearPosts, setMockPosts, appendRunnerPosts, appendSeekerPosts} = postSlice.actions
 
 export default postSlice.reducer

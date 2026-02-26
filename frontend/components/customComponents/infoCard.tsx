@@ -165,7 +165,7 @@ export default function InfoCard({ post, activeView }: infoCardProps){
                     </Text>
                 </View>
                 
-                <Pressable  onPress={() => router.push('/proposalScreen')} className= {`${buttonColor} px-6 py-2.5 rounded-lg active:opacity-80`}>
+                <Pressable  onPress={() => router.push({pathname: '/proposalScreen', params: {id: post.id}})} className= {`${buttonColor} px-6 py-2.5 rounded-lg active:opacity-80`}>
                     <Text className="text-primary-foreground font-inter-semibold to text-sm">
                         Connect
                     </Text>

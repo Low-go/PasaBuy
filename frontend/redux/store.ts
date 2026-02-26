@@ -6,6 +6,7 @@
 import { configureStore, type StateFromReducersMapObject } from "@reduxjs/toolkit";
 import { userSlice } from "./slices/userSlice";
 import { postSlice } from "./slices/postSlice";
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 
 
 /**
@@ -25,5 +26,13 @@ export const store = configureStore({
 });
 
 export type AppDispatch = typeof store.dispatch
+
+
+/**
+ * This is to tell useSelector that my state type is root
+ */
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> =useSelector;
+
 
 export default store;
