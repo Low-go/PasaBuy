@@ -10,13 +10,12 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } f
 import { getAvatar } from "@/redux/utils/avatars";
 import { router } from "expo-router";
 
-
-
 interface infoCardProps{
     post: Post;
     activeView: 'seeker' | 'runner';
 }
 
+//TODO does this even need to receive parameters, would I instead grab this from redux? Look into!
 export default function InfoCard({ post, activeView }: infoCardProps){
  
     const [expanded, setExpanded] = useState(false);
